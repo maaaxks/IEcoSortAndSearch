@@ -1,0 +1,13 @@
+# сборка
+BuildFiles/*
+!BuildFiles/.gitkeep
+*.o
+*.a
+*.so
+*.map
+*.exe
+*.bak
+
+# копии фреймворка (нераспространяемые), оставляем только список зависимостей
+DependenciesFiles/*
+!DependenciesFiles/ecoPackage.json
