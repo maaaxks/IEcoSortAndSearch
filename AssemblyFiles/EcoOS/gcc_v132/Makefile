@@ -141,8 +141,8 @@ CC = $(TOOL)gcc
 AR = $(TOOL)gcc-ar
 
 # --- Source and Object Files ---
-SRC = ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearch.c \
-      ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearchFactory.c
+SRC = ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearch.c \
+      ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearchFactory.c
 
 OBJ = $(SRC:.c=.o)
 

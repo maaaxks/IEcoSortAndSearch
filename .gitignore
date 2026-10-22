@@ -11,3 +11,10 @@ BuildFiles/*
 # копии фреймворка (нераспространяемые), оставляем только список зависимостей
 DependenciesFiles/*
 !DependenciesFiles/ecoPackage.json
+
+# компоненты калькулятора A-E из уроков 001.InsideACOM (исходники нужны для сборки)
+!DependenciesFiles/Eco.CalculatorA/
+!DependenciesFiles/Eco.CalculatorB/
+!DependenciesFiles/Eco.CalculatorC/
+!DependenciesFiles/Eco.CalculatorD/
+!DependenciesFiles/Eco.CalculatorE/

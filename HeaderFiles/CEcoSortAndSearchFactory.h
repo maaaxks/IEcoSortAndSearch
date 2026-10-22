@@ -4,7 +4,7 @@
  * </character encoding>
  *
  * <summary>
- *   CIEcoSortAndSearch_CAF05939Factory
+ *   CEcoSortAndSearch_CAF05939Factory
  * </summary>
  *
  * <description>
@@ -17,12 +17,12 @@
  *
  */
 
-#ifndef __C_IECOSORTANDSEARCH_FACTORY_H__
-#define __C_IECOSORTANDSEARCH_FACTORY_H__
+#ifndef __C_ECOSORTANDSEARCH_FACTORY_H__
+#define __C_ECOSORTANDSEARCH_FACTORY_H__
 
 #include "IEcoSystem1.h"
 
-typedef struct CIEcoSortAndSearch_CAF05939Factory {
+typedef struct CEcoSortAndSearch_CAF05939Factory {
 
     /* IEcoComponentFactory interface function table */
     IEcoComponentFactoryVTbl* m_pVTblICF;
@@ -35,6 +35,6 @@ typedef struct CIEcoSortAndSearch_CAF05939Factory {
     char_t m_Version[16];
     char_t m_Manufacturer[64];
 
-} CIEcoSortAndSearch_CAF05939Factory;
+} CEcoSortAndSearch_CAF05939Factory;
 
-#endif /* __C_IECOSORTANDSEARCH_FACTORY_H__ */
+#endif /* __C_ECOSORTANDSEARCH_FACTORY_H__ */

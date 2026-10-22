@@ -100,6 +100,11 @@ INC = -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.Core1$(SLAS
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.MemoryManager1$(SLASH)SharedFiles" \
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.FileSystemManagement1$(SLASH)SharedFiles" \
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.System1$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorA$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorB$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorC$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorD$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorE$(SLASH)SharedFiles" \
 -I ..$(SLASH)..$(SLASH)..$(SLASH)HeaderFiles \
 -I ..$(SLASH)..$(SLASH)..$(SLASH)SharedFiles
 
@@ -118,8 +123,8 @@ LDFLAGS = $(SYSROOT) $(LDFLAGS_ARCH)
 LIBS = -lgcc
 
 # --- Source and Object Files ---
-SRC = ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearch.c \
-      ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearchFactory.c
+SRC = ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearch.c \
+      ..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearchFactory.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -23,27 +23,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\SharedFiles\ErrIEcoSortAndSearch.h">
+    <ClInclude Include="..\..\..\SharedFiles\ErrEcoSortAndSearch.h">
       <Filter>Shared Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SharedFiles\IIEcoSortAndSearch.h">
+    <ClInclude Include="..\..\..\SharedFiles\IEcoSortAndSearch.h">
       <Filter>Shared Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\SharedFiles\IdIEcoSortAndSearch.h">
+    <ClInclude Include="..\..\..\SharedFiles\IdEcoSortAndSearch.h">
       <Filter>Shared Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\HeaderFiles\CIEcoSortAndSearch.h">
+    <ClInclude Include="..\..\..\HeaderFiles\CEcoSortAndSearch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\HeaderFiles\CIEcoSortAndSearchFactory.h">
+    <ClInclude Include="..\..\..\HeaderFiles\CEcoSortAndSearchFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SourceFiles\CIEcoSortAndSearch.c">
+    <ClCompile Include="..\..\..\SourceFiles\CEcoSortAndSearch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SourceFiles\CIEcoSortAndSearchFactory.c">
+    <ClCompile Include="..\..\..\SourceFiles\CEcoSortAndSearchFactory.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     

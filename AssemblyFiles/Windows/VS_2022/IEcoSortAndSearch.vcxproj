@@ -337,15 +337,15 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\HeaderFiles\CIEcoSortAndSearch.h" />
-    <ClInclude Include="..\..\..\HeaderFiles\CIEcoSortAndSearchFactory.h" />
-    <ClInclude Include="..\..\..\SharedFiles\ErrIEcoSortAndSearch.h" />
-    <ClInclude Include="..\..\..\SharedFiles\IdIEcoSortAndSearch.h" />
-    <ClInclude Include="..\..\..\SharedFiles\IIEcoSortAndSearch.h" />
+    <ClInclude Include="..\..\..\HeaderFiles\CEcoSortAndSearch.h" />
+    <ClInclude Include="..\..\..\HeaderFiles\CEcoSortAndSearchFactory.h" />
+    <ClInclude Include="..\..\..\SharedFiles\ErrEcoSortAndSearch.h" />
+    <ClInclude Include="..\..\..\SharedFiles\IdEcoSortAndSearch.h" />
+    <ClInclude Include="..\..\..\SharedFiles\IEcoSortAndSearch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SourceFiles\CIEcoSortAndSearch.c" />
-    <ClCompile Include="..\..\..\SourceFiles\CIEcoSortAndSearchFactory.c" />
+    <ClCompile Include="..\..\..\SourceFiles\CEcoSortAndSearch.c" />
+    <ClCompile Include="..\..\..\SourceFiles\CEcoSortAndSearchFactory.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

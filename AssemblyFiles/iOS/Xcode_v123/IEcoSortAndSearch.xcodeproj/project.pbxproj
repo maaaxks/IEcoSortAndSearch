@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0101E8F327F75A8400F84428 /* CIEcoSortAndSearch.c in Sources */ = {isa = PBXBuildFile; fileRef = 0101E8F127F75A8400F84428 /* CIEcoSortAndSearch.c */; };
-		0101E8F427F75A8400F84428 /* CIEcoSortAndSearchFactory.c in Sources */ = {isa = PBXBuildFile; fileRef = 0101E8F227F75A8400F84428 /* CIEcoSortAndSearchFactory.c */; };
+		0101E8F327F75A8400F84428 /* CEcoSortAndSearch.c in Sources */ = {isa = PBXBuildFile; fileRef = 0101E8F127F75A8400F84428 /* CEcoSortAndSearch.c */; };
+		0101E8F427F75A8400F84428 /* CEcoSortAndSearchFactory.c in Sources */ = {isa = PBXBuildFile; fileRef = 0101E8F227F75A8400F84428 /* CEcoSortAndSearchFactory.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,12 +25,12 @@
 
 /* Begin PBXFileReference section */
 		0101E8DC27F75A0D00F84428 /* lib591FC2D6783F43F0B5B565CCCAF05939.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib591FC2D6783F43F0B5B565CCCAF05939.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0101E8ED27F75A5F00F84428 /* CIEcoSortAndSearchFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CIEcoSortAndSearchFactory.h; path = ../../../HeaderFiles/CIEcoSortAndSearchFactory.h; sourceTree = "<group>"; };
-		0101E8EE27F75A5F00F84428 /* CIEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CIEcoSortAndSearch.h; path = ../../../HeaderFiles/CIEcoSortAndSearch.h; sourceTree = "<group>"; };
-		0101E8EF27F75A7200F84428 /* IdIEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IdIEcoSortAndSearch.h; path = ../../../SharedFiles/IdIEcoSortAndSearch.h; sourceTree = "<group>"; };
-		0101E8F027F75A7200F84428 /* IIEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IIEcoSortAndSearch.h; path = ../../../SharedFiles/IIEcoSortAndSearch.h; sourceTree = "<group>"; };
-		0101E8F127F75A8400F84428 /* CIEcoSortAndSearch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CIEcoSortAndSearch.c; path = ../../../SourceFiles/CIEcoSortAndSearch.c; sourceTree = "<group>"; };
-		0101E8F227F75A8400F84428 /* CIEcoSortAndSearchFactory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CIEcoSortAndSearchFactory.c; path = ../../../SourceFiles/CIEcoSortAndSearchFactory.c; sourceTree = "<group>"; };
+		0101E8ED27F75A5F00F84428 /* CEcoSortAndSearchFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEcoSortAndSearchFactory.h; path = ../../../HeaderFiles/CEcoSortAndSearchFactory.h; sourceTree = "<group>"; };
+		0101E8EE27F75A5F00F84428 /* CEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CEcoSortAndSearch.h; path = ../../../HeaderFiles/CEcoSortAndSearch.h; sourceTree = "<group>"; };
+		0101E8EF27F75A7200F84428 /* IdEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IdEcoSortAndSearch.h; path = ../../../SharedFiles/IdEcoSortAndSearch.h; sourceTree = "<group>"; };
+		0101E8F027F75A7200F84428 /* IEcoSortAndSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IEcoSortAndSearch.h; path = ../../../SharedFiles/IEcoSortAndSearch.h; sourceTree = "<group>"; };
+		0101E8F127F75A8400F84428 /* CEcoSortAndSearch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CEcoSortAndSearch.c; path = ../../../SourceFiles/CEcoSortAndSearch.c; sourceTree = "<group>"; };
+		0101E8F227F75A8400F84428 /* CEcoSortAndSearchFactory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = CEcoSortAndSearchFactory.c; path = ../../../SourceFiles/CEcoSortAndSearchFactory.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +65,8 @@
 		0101E8EA27F75A2C00F84428 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				0101E8F127F75A8400F84428 /* CIEcoSortAndSearch.c */,
-				0101E8F227F75A8400F84428 /* CIEcoSortAndSearchFactory.c */,
+				0101E8F127F75A8400F84428 /* CEcoSortAndSearch.c */,
+				0101E8F227F75A8400F84428 /* CEcoSortAndSearchFactory.c */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -74,8 +74,8 @@
 		0101E8EB27F75A3800F84428 /* Shared Files */ = {
 			isa = PBXGroup;
 			children = (
-				0101E8EF27F75A7200F84428 /* IdIEcoSortAndSearch.h */,
-				0101E8F027F75A7200F84428 /* IIEcoSortAndSearch.h */,
+				0101E8EF27F75A7200F84428 /* IdEcoSortAndSearch.h */,
+				0101E8F027F75A7200F84428 /* IEcoSortAndSearch.h */,
 			);
 			name = "Shared Files";
 			sourceTree = "<group>";
@@ -83,8 +83,8 @@
 		0101E8EC27F75A4600F84428 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				0101E8EE27F75A5F00F84428 /* CIEcoSortAndSearch.h */,
-				0101E8ED27F75A5F00F84428 /* CIEcoSortAndSearchFactory.h */,
+				0101E8EE27F75A5F00F84428 /* CEcoSortAndSearch.h */,
+				0101E8ED27F75A5F00F84428 /* CEcoSortAndSearchFactory.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
@@ -146,8 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0101E8F327F75A8400F84428 /* CIEcoSortAndSearch.c in Sources */,
-				0101E8F427F75A8400F84428 /* CIEcoSortAndSearchFactory.c in Sources */,
+				0101E8F327F75A8400F84428 /* CEcoSortAndSearch.c in Sources */,
+				0101E8F427F75A8400F84428 /* CEcoSortAndSearchFactory.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

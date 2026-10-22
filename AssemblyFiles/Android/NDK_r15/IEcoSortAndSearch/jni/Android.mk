@@ -12,8 +12,8 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../../../HeaderFiles
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../../../../SharedFiles
 TARGET_PLATFORM := android-15
 TARGET_OUT := $(LOCAL_PATH)/../../../../../BuildFiles/Android/$(TARGET_ARCH_ABI)/$(CONFIGURATION)
-LOCAL_SRC_FILES := ../../../../../SourceFiles/CIEcoSortAndSearch.c \
-../../../../../SourceFiles/CIEcoSortAndSearchFactory.c
+LOCAL_SRC_FILES := ../../../../../SourceFiles/CEcoSortAndSearch.c \
+../../../../../SourceFiles/CEcoSortAndSearchFactory.c
 
 ifeq ($(TARGET_LINK),0)
 

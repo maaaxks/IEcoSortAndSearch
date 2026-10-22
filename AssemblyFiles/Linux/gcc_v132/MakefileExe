@@ -104,6 +104,11 @@ INC = -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.Core1$(SLAS
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.MemoryManager1$(SLASH)SharedFiles" \
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.FileSystemManagement1$(SLASH)SharedFiles" \
 -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.System1$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorA$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorB$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorC$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorD$(SLASH)SharedFiles" \
+-I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorE$(SLASH)SharedFiles" \
 -I ..$(SLASH)..$(SLASH)..$(SLASH)SharedFiles$(SLASH) \
 -I ..$(SLASH)..$(SLASH)..$(SLASH)HeaderFiles$(SLASH) \
 -I ..$(SLASH)..$(SLASH)..$(SLASH)HeaderFiles$(SLASH)$(ARCH)
@@ -114,7 +119,12 @@ LIB_DIR = -L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.Core1$(
 -L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.MemoryManager1$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
 -L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.FileSystemManagement1$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
 -L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.System1$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease"\
--L "..$(SLASH)..$(SLASH)..$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)$(BASE_TARGET)$(CONFIG_DIR)"
+-L "..$(SLASH)..$(SLASH)..$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)$(BASE_TARGET)$(CONFIG_DIR)" \
+-L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorA$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
+-L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorB$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
+-L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorC$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
+-L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorD$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease" \
+-L "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.CalculatorE$(SLASH)BuildFiles$(SLASH)$(PLATFORM)$(SLASH)$(ARCH_TARGET)$(SLASH)StaticRelease"
 
 # Global Compiler Flags (-DECO_LINUX )
 CCFLAGS = $(SYSROOT) -Wall $(CCFLAGS_BASE) $(CCFLAGS_ARCH) -DUGUID_UTILITY -DECO_LINUX $(LANG_STD_FLAGS) $(INC)
@@ -127,7 +137,7 @@ else
 endif
 
 ifeq ($(TARGET), 1)
-    LIBS_TARGET = -lm -lc -lgcc -ldl -Wl,--start-group -l00000000000000000000000042757331 -l0000000000000000000000004D656D31 -l00000000000000000000000046534D31 -l$(ECO_GEN_SYS_LIB)  -l591FC2D6783F43F0B5B565CCCAF05939 -Wl,--end-group
+    LIBS_TARGET = -lm -lc -lgcc -ldl -Wl,--start-group -l00000000000000000000000042757331 -l0000000000000000000000004D656D31 -l00000000000000000000000046534D31 -l$(ECO_GEN_SYS_LIB)  -l591FC2D6783F43F0B5B565CCCAF05939 -l3FDF228D0701437FAF2A696A86AB2353 -l4828F6552E4540E78121EBD220DC360E -l4828F6552E4540E78121EBD220DC360E_C -lAE202E543CE54550899603BD70C62565 -l3A8E44677E82475CB4A3719ED8397E61 -l872FEF1DE3314B87AD44D1E7C232C2F0 -Wl,--end-group
 else
     LIBS_TARGET = -lgcc -ldl -l$(ECO_GEN_SYS_LIB)
 endif
@@ -137,7 +147,8 @@ LDFLAGS = $(SYSROOT) $(LDFLAGS_ARCH)
 LIBS = $(LIB_DIR) $(LIBS_TARGET)
 
 # --- Source and Object Files ---
-SRC_C = ..$(SLASH)..$(SLASH)..$(SLASH)UnitTestFiles$(SLASH)SourceFiles$(SLASH)IEcoSortAndSearch.c
+SRC_C = ..$(SLASH)..$(SLASH)..$(SLASH)UnitTestFiles$(SLASH)SourceFiles$(SLASH)IEcoSortAndSearch.c \
+        ..$(SLASH)..$(SLASH)..$(SLASH)UnitTestFiles$(SLASH)SourceFiles$(SLASH)EcoCalculatorTests.c
 SRC_S = 
 
 OBJ = $(SRC_C:.c=.o)

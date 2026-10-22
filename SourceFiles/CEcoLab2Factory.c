@@ -4,7 +4,7 @@
  * </character encoding>
  *
  * <summary>
- *   CIEcoSortAndSearch_CAF05939Factory
+ *   CEcoLab2_86AB2353Factory
  * </summary>
  *
  * <description>
@@ -21,10 +21,10 @@
 #include "IEcoInterfaceBus1.h"
 #include "IEcoInterfaceBus1MemExt.h"
 
-#include "CIEcoSortAndSearch.h"
-#include "CIEcoSortAndSearchFactory.h"
+#include "CEcoLab2.h"
+#include "CEcoLab2Factory.h"
 
-extern CIEcoSortAndSearch_CAF05939 g_xCIEcoSortAndSearch_CAF05939;
+extern CEcoLab2_86AB2353 g_xCEcoLab2_86AB2353;
 
 /*
  *
@@ -37,7 +37,7 @@ extern CIEcoSortAndSearch_CAF05939 g_xCIEcoSortAndSearch_CAF05939;
  * </description>
  *
  */
-static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_QueryInterface(IEcoComponentFactory* me, const UGUID* riid, void** ppv) {
+static int16_t ECOCALLMETHOD CEcoLab2_86AB2353Factory_QueryInterface(IEcoComponentFactory* me, const UGUID* riid, void** ppv) {
     if ( IsEqualUGUID(riid, &IID_IEcoUnknown) || IsEqualUGUID(riid, &IID_IEcoComponentFactory) ) {
         *ppv = me;
     }
@@ -61,8 +61,8 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_QueryInterface(I
  * </description>
  *
  */
-static uint32_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_AddRef(/* in */ IEcoComponentFactory* me) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static uint32_t ECOCALLMETHOD CEcoLab2_86AB2353Factory_AddRef(/* in */ IEcoComponentFactory* me) {
+    CEcoLab2_86AB2353Factory* pCMe = (CEcoLab2_86AB2353Factory*)me;
 
     if (me == 0 ) {
         return -1; /* ERR_ECO_POINTER */
@@ -82,8 +82,8 @@ static uint32_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_AddRef(/* in */
  * </description>
  *
  */
-static uint32_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Release(/* in */ IEcoComponentFactory* me) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static uint32_t ECOCALLMETHOD CEcoLab2_86AB2353Factory_Release(/* in */ IEcoComponentFactory* me) {
+    CEcoLab2_86AB2353Factory* pCMe = (CEcoLab2_86AB2353Factory*)me;
 
     if (me == 0 ) {
         return -1; /* ERR_ECO_POINTER */
@@ -110,8 +110,7 @@ static uint32_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Release(/* in *
  * </description>
  *
  */
-static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Init(/* in */ struct IEcoComponentFactory* me, /* in */ struct IEcoUnknown *pIUnkSystem, /* in */ void* pv) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static int16_t ECOCALLMETHOD CEcoLab2_86AB2353Factory_Init(/* in */ struct IEcoComponentFactory* me, /* in */ struct IEcoUnknown *pIUnkSystem, /* in */ void* pv) {
     int16_t result = ERR_ECO_POINTER;
 
     if (me == 0 ) {
@@ -134,23 +133,22 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Init(/* in */ st
  * </description>
  *
  */
-static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Alloc(/* in */ struct IEcoComponentFactory* me, /* in */ struct IEcoUnknown *pISystem, /* in */ struct IEcoUnknown *pIUnknownOuter, /* in */ const UGUID* riid, /* out */ void** ppv) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static int16_t ECOCALLMETHOD CEcoLab2_86AB2353Factory_Alloc(/* in */ struct IEcoComponentFactory* me, /* in */ struct IEcoUnknown *pISystem, /* in */ struct IEcoUnknown *pIUnknownOuter, /* in */ const UGUID* riid, /* out */ void** ppv) {
     IEcoUnknown* pIUnk = 0;
     int16_t result = ERR_ECO_POINTER;
     IEcoSystem1* pISys = 0;
     IEcoInterfaceBus1* pIBus = 0;
     IEcoInterfaceBus1MemExt* pIMemExt = 0;
     IEcoMemoryAllocator1* pIMem = 0;
-    CIEcoSortAndSearch_CAF05939* pCObj = 0;
+    CEcoLab2_86AB2353* pCObj = 0;
     UGUID* rcid = (UGUID*)&CID_EcoMemoryManager1;
 
-    if (me == 0 || pISystem == 0 ) {
+    if (me == 0 || pISystem == 0 || ppv == 0) {
         return result; /* ERR_ECO_POINTER */
     }
 
-    /* Aggregation provided that IID is IID_IEcoUnknown */
-    if ( ( pIUnknownOuter != 0 ) && !IsEqualUGUID(riid, &IID_IEcoUnknown ) ) {
+    /* Eco.Lab2 сам является внешним компонентом и не поддерживает агрегирование */
+    if ( pIUnknownOuter != 0 ) {
         /* aggregation not supported */
         return ERR_ECO_NOAGGREGATION;
     }
@@ -178,7 +176,7 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Alloc(/* in */ s
     }
 
     /* Getting the memory allocator interface */
-    pIBus->pVTbl->QueryComponent(pIBus, rcid, 0, &IID_IEcoMemoryAllocator1, (void**) &pIMem);
+    result = pIBus->pVTbl->QueryComponent(pIBus, rcid, 0, &IID_IEcoMemoryAllocator1, (void**) &pIMem);
     /* Check */
     if (result != 0 || pIMem == 0) {
         /* Freeing in case of an error */
@@ -188,16 +186,17 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Alloc(/* in */ s
     }
 
     /* Allocating memory for instance data */
-    pCObj = (CIEcoSortAndSearch_CAF05939*)pIMem->pVTbl->Alloc(pIMem, sizeof(CIEcoSortAndSearch_CAF05939));
+    pCObj = (CEcoLab2_86AB2353*)pIMem->pVTbl->Alloc(pIMem, sizeof(CEcoLab2_86AB2353));
     if (pCObj == 0) {
         /* Freeing in case of an error */
+        pIMem->pVTbl->Release(pIMem);
         pIBus->pVTbl->Release(pIBus);
         pISys->pVTbl->Release(pISys);
         return ERR_ECO_OUTOFMEMORY;
     }
 
     /* Forming instance data */
-    pCObj = (CIEcoSortAndSearch_CAF05939*)pIMem->pVTbl->Copy(pIMem, pCObj, &g_xCIEcoSortAndSearch_CAF05939, sizeof(CIEcoSortAndSearch_CAF05939));
+    pCObj = (CEcoLab2_86AB2353*)pIMem->pVTbl->Copy(pIMem, pCObj, &g_xCEcoLab2_86AB2353, sizeof(CEcoLab2_86AB2353));
 
     /* Component creation */
     pCObj->Create(pCObj, pISystem, pIUnknownOuter);
@@ -207,10 +206,17 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Alloc(/* in */ s
 
     /* Getting a pointer to the interface */
     pIUnk = (IEcoUnknown*)pCObj;
-    result = pIUnk->pVTbl->QueryInterface(pIUnk, riid, ppv);
+    if (result == 0) {
+        result = pIUnk->pVTbl->QueryInterface(pIUnk, riid, ppv);
+    }
 
-    /* Decrementing the reference requested by the Component Factory */
+    /* Decrementing the reference requested by the Component Factory (on error the instance is freed) */
     pIUnk->pVTbl->Release(pIUnk);
+
+    /* Freeing the factory's own references */
+    pIMem->pVTbl->Release(pIMem);
+    pIBus->pVTbl->Release(pIBus);
+    pISys->pVTbl->Release(pISys);
 
     return result;
 }
@@ -225,8 +231,8 @@ static int16_t ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_Alloc(/* in */ s
  * </description>
  *
  */
-static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Name(/* in */ struct IEcoComponentFactory* me) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static char_t* ECOCALLMETHOD CEcoLab2_86AB2353Factory_get_Name(/* in */ struct IEcoComponentFactory* me) {
+    CEcoLab2_86AB2353Factory* pCMe = (CEcoLab2_86AB2353Factory*)me;
 
     if (me == 0 ) {
         return 0; /* ERR_ECO_POINTER */
@@ -246,8 +252,8 @@ static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Name(/* in *
  * </description>
  *
  */
-static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Version(/* in */ struct IEcoComponentFactory* me) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static char_t* ECOCALLMETHOD CEcoLab2_86AB2353Factory_get_Version(/* in */ struct IEcoComponentFactory* me) {
+    CEcoLab2_86AB2353Factory* pCMe = (CEcoLab2_86AB2353Factory*)me;
 
     if (me == 0 ) {
         return 0; /* ERR_ECO_POINTER */
@@ -267,8 +273,8 @@ static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Version(/* i
  * </description>
  *
  */
-static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Manufacturer(/* in */ struct IEcoComponentFactory* me) {
-    CIEcoSortAndSearch_CAF05939Factory* pCMe = (CIEcoSortAndSearch_CAF05939Factory*)me;
+static char_t* ECOCALLMETHOD CEcoLab2_86AB2353Factory_get_Manufacturer(/* in */ struct IEcoComponentFactory* me) {
+    CEcoLab2_86AB2353Factory* pCMe = (CEcoLab2_86AB2353Factory*)me;
 
     if (me == 0 ) {
         return 0; /* ERR_ECO_POINTER */
@@ -278,15 +284,15 @@ static char_t* ECOCALLMETHOD CIEcoSortAndSearch_CAF05939Factory_get_Manufacturer
 }
 
 /* Create Virtual Table */
-IEcoComponentFactoryVTbl g_x591FC2D6783F43F0B5B565CCCAF05939FactoryVTbl = {
-    CIEcoSortAndSearch_CAF05939Factory_QueryInterface,
-    CIEcoSortAndSearch_CAF05939Factory_AddRef,
-    CIEcoSortAndSearch_CAF05939Factory_Release,
-    CIEcoSortAndSearch_CAF05939Factory_Alloc,
-    CIEcoSortAndSearch_CAF05939Factory_Init,
-    CIEcoSortAndSearch_CAF05939Factory_get_Name,
-    CIEcoSortAndSearch_CAF05939Factory_get_Version,
-    CIEcoSortAndSearch_CAF05939Factory_get_Manufacturer
+IEcoComponentFactoryVTbl g_x3FDF228D0701437FAF2A696A86AB2353FactoryVTbl = {
+    CEcoLab2_86AB2353Factory_QueryInterface,
+    CEcoLab2_86AB2353Factory_AddRef,
+    CEcoLab2_86AB2353Factory_Release,
+    CEcoLab2_86AB2353Factory_Alloc,
+    CEcoLab2_86AB2353Factory_Init,
+    CEcoLab2_86AB2353Factory_get_Name,
+    CEcoLab2_86AB2353Factory_get_Version,
+    CEcoLab2_86AB2353Factory_get_Manufacturer
 };
 
 /*
@@ -300,18 +306,18 @@ IEcoComponentFactoryVTbl g_x591FC2D6783F43F0B5B565CCCAF05939FactoryVTbl = {
  * </description>
  *
  */
-CIEcoSortAndSearch_CAF05939Factory g_x591FC2D6783F43F0B5B565CCCAF05939Factory = {
-    &g_x591FC2D6783F43F0B5B565CCCAF05939FactoryVTbl,
+CEcoLab2_86AB2353Factory g_x3FDF228D0701437FAF2A696A86AB2353Factory = {
+    &g_x3FDF228D0701437FAF2A696A86AB2353FactoryVTbl,
     0,
-    "IEcoSortAndSearch\0",
+    "Eco.Lab2\0",
     "1.0.0.0\0",
     "\0"
 };
 
 #ifdef ECO_DLL
 ECO_EXPORT IEcoComponentFactory* ECOCALLMETHOD GetIEcoComponentFactoryPtr() {
-    return (IEcoComponentFactory*)&g_x591FC2D6783F43F0B5B565CCCAF05939Factory;
+    return (IEcoComponentFactory*)&g_x3FDF228D0701437FAF2A696A86AB2353Factory;
 };
 #elif ECO_LIB
-IEcoComponentFactory* GetIEcoComponentFactoryPtr_591FC2D6783F43F0B5B565CCCAF05939 = (IEcoComponentFactory*)&g_x591FC2D6783F43F0B5B565CCCAF05939Factory;
+IEcoComponentFactory* GetIEcoComponentFactoryPtr_3FDF228D0701437FAF2A696A86AB2353 = (IEcoComponentFactory*)&g_x3FDF228D0701437FAF2A696A86AB2353Factory;
 #endif

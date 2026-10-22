@@ -3,10 +3,13 @@
 #include "IdEcoMemoryManager1.h"
 #include "IdEcoInterfaceBus1.h"
 #include "IdEcoFileSystemManagement1.h"
-#include "IdIEcoSortAndSearch.h"
+#include "IdEcoSortAndSearch.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+/* Задание 2: включение/агрегирование компонентов калькулятора (EcoCalculatorTests.c) */
+extern int RunCalculatorTests(IEcoInterfaceBus1* pIBus, IEcoUnknown* pISystem, int* pChecks);
 
 typedef struct TestItem {
     int key;
@@ -96,7 +99,7 @@ static void fillInt(int* a, int n, int mode) {
 }
 
 /*0= success, else- some errors*/
-static int16_t runIntCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n, int mode) {
+static int16_t runIntCase(IEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n, int mode) {
     int* a;
     int i;
     uint32_t sumBefore = 0, sumAfter = 0;
@@ -129,7 +132,7 @@ static int16_t runIntCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMe
 }
 
 /*stability: equal keys keep their original id order*/
-static int16_t runStableCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
+static int16_t runStableCase(IEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
     TestItem* a;
     int i;
     int16_t r;
@@ -160,7 +163,7 @@ static int16_t runStableCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* p
 
 
 /* double, 0 = success; 1 = error; 2 = not sorted; 3 = changed elements; 4 = no space */
-static int16_t runDoubleCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
+static int16_t runDoubleCase(IEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
     double* a;
     double sumBefore = 0.0, sumAfter = 0.0;
     int i;
@@ -196,7 +199,7 @@ static int16_t runDoubleCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* p
 }
 
 /*char*/
-static int16_t runStringCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
+static int16_t runStringCase(IEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem, int n) {
     char* pool;
     char** arr;
     char* p;
@@ -246,7 +249,7 @@ static int16_t runStringCase(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* p
 }
 
 /*Error cases*/
-static void runErrorCases(IIEcoSortAndSearch* pISort) {
+static void runErrorCases(IEcoSortAndSearch* pISort) {
     int a[3];
     int16_t r;
 
@@ -294,7 +297,7 @@ static int cmpIntQ(const void* a, const void* b) {
 }
 
 /*time my timsort vs qsort*/
-static void runBenchmark(IIEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem) {
+static void runBenchmark(IEcoSortAndSearch* pISort, IEcoMemoryAllocator1* pIMem) {
     static const char* modeName[5] = {"random", "sorted", "reversed", "few_unique", "nearly_sorted"};
     int sizes[5];
     int s, m, i, rep, reps, n, ok;
@@ -362,11 +365,13 @@ int16_t EcoMain(IEcoUnknown* pIUnk) {
     int16_t result = -1;
     int16_t r;
     int s, m;
+    int calcChecks = 0;
+    int calcErrors = 0;
     int sizes[15];
     IEcoSystem1* pISys = 0;
     IEcoInterfaceBus1* pIBus = 0;
     IEcoMemoryAllocator1* pIMem = 0;
-    IIEcoSortAndSearch* pISort = 0;
+    IEcoSortAndSearch* pISort = 0;
 
     sizes[0] = 0;    sizes[1] = 1;    sizes[2] = 2;     sizes[3] = 3;
     sizes[4] = 10;   sizes[5] = 31;   sizes[6] = 32;    sizes[7] = 33;
@@ -382,7 +387,7 @@ int16_t EcoMain(IEcoUnknown* pIUnk) {
         goto Release;
     }
 #ifdef ECO_LIB
-    result = pIBus->pVTbl->RegisterComponent(pIBus, &CID_IEcoSortAndSearch, (IEcoUnknown*)GetIEcoComponentFactoryPtr_591FC2D6783F43F0B5B565CCCAF05939);
+    result = pIBus->pVTbl->RegisterComponent(pIBus, &CID_EcoSortAndSearch, (IEcoUnknown*)GetIEcoComponentFactoryPtr_591FC2D6783F43F0B5B565CCCAF05939);
     if (result != 0) {
         goto Release;
     }
@@ -391,7 +396,7 @@ int16_t EcoMain(IEcoUnknown* pIUnk) {
     if (result != 0 || pIMem == 0) {
         goto Release;
     }
-    result = pIBus->pVTbl->QueryComponent(pIBus, &CID_IEcoSortAndSearch, 0, &IID_IIEcoSortAndSearch, (void**) &pISort);
+    result = pIBus->pVTbl->QueryComponent(pIBus, &CID_EcoSortAndSearch, 0, &IID_IEcoSortAndSearch, (void**) &pISort);
     if (result != 0 || pISort == 0) {
         goto Release;
     }
@@ -423,6 +428,14 @@ int16_t EcoMain(IEcoUnknown* pIUnk) {
     check(r == 0, (int16_t)(500 + r), "string sort", 5000, 0);
 
     runErrorCases(pISort);
+
+    /* Задание 2 */
+    calcErrors = RunCalculatorTests(pIBus, (IEcoUnknown*)pISys, &calcChecks);
+    g_checks += calcChecks;
+    g_errors += calcErrors;
+    if (calcErrors != 0 && g_firstFail == 0) {
+        g_firstFail = 600;
+    }
 
     fprintf(stderr, "Checks: %d, errors: %d\n", g_checks, g_errors);
     result = (g_errors == 0) ? 0 : g_firstFail;

@@ -90,8 +90,8 @@ INC = -I "..$(SLASH)..$(SLASH)..$(SLASH)DependenciesFiles$(SLASH)Eco.Core1$(SLAS
 
 # Source files.
 SRC = \
-..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearch.c \
-..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CIEcoSortAndSearchFactory.c
+..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearch.c \
+..$(SLASH)..$(SLASH)..$(SLASH)SourceFiles$(SLASH)CEcoSortAndSearchFactory.c
 
 # Libraries
 LIBS = -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 -ladvapi32 -lshell32 -lole32 -loleaut32 -luuid -lodbc32 -lodbccp32

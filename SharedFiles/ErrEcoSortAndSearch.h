@@ -4,7 +4,7 @@
  * </character encoding>
  *
  * <summary>
- *   IdIEcoSortAndSearch
+ *   IdEcoSortAndSearch
  * </summary>
  *
  * <description>
@@ -21,12 +21,12 @@
  *
  */
 
-#ifndef __ERR_IECOSORTANDSEARCH_H__
-#define __ERR_IECOSORTANDSEARCH_H__
+#ifndef __ERR_ECOSORTANDSEARCH_H__
+#define __ERR_ECOSORTANDSEARCH_H__
 
 /*
  * <error code>
- *   ERR_IECOSORTANDSEARCH_REQ_COMP_LIST
+ *   ERR_ECOSORTANDSEARCH_REQ_COMP_LIST
  * </error code>
  *
  * <description>
@@ -37,7 +37,7 @@
  *   CID_EcoList1 = {53884AFC-93C4-48EC-AA92-9C8D3A562281}
  * </CID>
  */
-#define ERR_IECOSORTANDSEARCH_REQ_COMP_LIST 1001
+#define ERR_ECOSORTANDSEARCH_REQ_COMP_LIST 1001
 
 
-#endif /* __ERR_IECOSORTANDSEARCH_H__ */
+#endif /* __ERR_ECOSORTANDSEARCH_H__ */
